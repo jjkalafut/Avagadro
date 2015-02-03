@@ -1,0 +1,18 @@
+{
+  'overall': { name: 'Overall Scores', results: [
+    {'team':'Nowhereville', 'score':'42'},
+    {'team':'Everytown', 'score':'45'},
+    {'team':'Bayside', 'score':'49'}
+  ]},
+  'boomilever': { name: 'Overall Scores', results: [
+    {'team':'Nowhereville', 'students':'Deborah Marquez, Lewis Toller'},
+    {'team':'Everytown', 'students':'John Doe, Jane Doe'},
+    {'team':'Bayside', 'students':'Ryan Whitten, Wilma Isaacson, Johnnie Mellott'}
+  ]},
+  'chemistry-lab': { name: 'Chemistry Lab', results: null},
+  'dynamic-planet': { name: 'Overall Scores', results: [
+    {'team':'Nowhereville', 'students':'Martin Drown, Ruthy Murry'},
+    {'team':'Everytown', 'students':'William Lippincott, Florence King, Debbie Bancroft, Keri Miller'},
+    {'team':'Bayside'}
+  ]}
+}

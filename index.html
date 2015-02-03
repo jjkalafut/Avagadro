@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+
+<html lang="en">
 <head>
-	<title>Presentation</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <meta charset="utf-8" />
+    <title>Console Display Window</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
-	<h1>Magic!!</h1>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-2.1.1.min.js"%3E%3C/script%3E'))</script>
+    <h1>Display Shell Console View</h1>
+    <table id = 'buttonTable'>
+        <tr>
+            <td><input type="button" onclick="projectorModeOn()" id="projectormode" value="Projector Mode is Off"></td>
+        </tr>
+		        <tr>
+            <td><input type="button" onclick="showNextTeam()" id="place1" value="Show Next Team"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="removeCurrentTeam()" id="place2" value="Remove Current Team"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="textHolder" value="What Did I just Do"></td>
+        </tr>
+    </table>
+	<table>
+		<tr>
+			<td><div id = "displayTable" value = ""></div></td>	
+			<td><div id="teamInformation" value = ""></div></td>
+		</tr>	
+	</table>
+	
+	
+
 </body>
 </html>

@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="app.css" type="text/css" />
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
     <script src="app.js"></script>
+	
+	<style>
+		#displayTable
+		{
+			overflow:auto;
+			background-color:#B2B2FF;
+			width:280px;
+			height:300px;
+		}
+	</style>
 </head>
 <body>
     <h1>Display Shell Console View</h1>
-    <table id = 'buttonTable'>
+	
+    <table id="buttonTable"">
         <tr>
             <td><input type="button" onclick="projectorModeOn()" id="projectormode" value="Projector Mode is Off"></td>
         </tr>
@@ -20,18 +31,13 @@
         <tr>
             <td><input type="button" onclick="removeCurrentTeam()" id="place2" value="Remove Current Team"></td>
         </tr>
-        <tr>
-            <td><input type="button" id="textHolder" value="What Did I just Do"></td>
-        </tr>
     </table>
+
 	<table>
 		<tr>
-			<td><div id = "displayTable" value = ""></div></td>	
+			<td><div id="displayTable" value = ""></div></td>	
 			<td><div id="teamInformation" value = ""></div></td>
 		</tr>	
 	</table>
-	
-	
-
 </body>
 </html>

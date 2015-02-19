@@ -5,7 +5,6 @@ var texttopass= new Array();
 var propValue = new Array();
 var teams = new Array();
 var passedInformation = new Array(); //Hosts the information to be passed to the projector view
-
 //view.projectorModeOn opens projector mode.
 view.projectorModeOn = function () {
     modecount++;
@@ -38,7 +37,7 @@ view.showNextTeam = function showNextTeam() {
     }
 };
 
-view.onload = function () {
+function grabResults() {
 var obj = new Object();
 
 	$.ajax({
@@ -82,11 +81,16 @@ var obj = new Object();
 	}
 	addTable();
 };
+view.onload = grabResults;
 
 function addTable() {   // Adds the first table
-        var myTableDiv = document.getElementById("displayTable")
-        var table = document.createElement('TABLE')
-        var tableBody = document.createElement('TBODY')
+		
+        var myTableDiv = document.getElementById("displayTable");
+		while (myTableDiv.hasChildNodes()) {
+			myTableDiv.removeChild(myTableDiv.lastChild);
+		} 
+        var table = document.createElement('TABLE');
+        var tableBody = document.createElement('TBODY');
         table.appendChild(tableBody);
         //dynamic table row and column creation
 		for (i = 0; i < propValue.length; i++) {
@@ -96,6 +100,7 @@ function addTable() {   // Adds the first table
 			td_btn.index=i;
 			td_btn.onclick = function() {		
 				tableButtons(this.index);
+				grabResults();
 			};
 			td.appendChild(document.createTextNode(propValue[i].name));
 			td_btn.appendChild(document.createTextNode('Expand Teams'));
@@ -104,6 +109,7 @@ function addTable() {   // Adds the first table
 			tableBody.appendChild(tr);
 		}
     myTableDiv.appendChild(table);
+
 };
 
 function tableButtons(id) {   //Adds the scores and team information when the Expand Teams buttons are clicked

@@ -11,15 +11,6 @@
 	<!-- Bootstrap -->
     <link href="bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
 	
-	<style>
-		#displayTable
-		{
-			overflow:auto;
-			background-color:#B2B2FF;
-			height:250px;
-			width:300px;
-		}
-	</style>
 </head>
 <body>
 	<div class="container">`
@@ -29,24 +20,29 @@
 		
 		<div class="row">
 			<div class="col-md-4">
-				<p>Teams</p>
+				<h2>Teams</h2>
+				<p>Click event to expand results</P>
 				<div id="displayTable" value = ""></div>
 			</div>
 			<div class="col-md-4">
-				<p>Results</p>
+				<h2>Results</h2>
+				<p>Click team to display results</P>
 				<div id="teamInformation" value = ""></div>
 			</div>
 			<div class="col-md-4">
-				<p>Controls</p>
-				<table id="buttonTable">
+				<h2>Controls</h2>
+				<table id="buttonTable" class="table table-striped">
 					<tr>
-						<td><input type="button" onclick="projectorModeOn()" id="projectormode" value="Projector Mode is Off"></td>
+						<td><input type="button"  class="btn btn-default btn-block" onclick="projectorModeOn()" id="projectormode" value="Projector Mode OFF"></td>
 					</tr>
 					<tr>
-						<td><input type="button" onclick="showNextTeam()" id="place1" value="Show Next Team"></td>
+						<td><input type="button" class="btn btn-default btn-block" onclick="showNextTeam()" id="place1" value="Show Next Team"></td>
 					</tr>
 					<tr>
-						<td><input type="button" onclick="removeCurrentTeam()" id="place2" value="Remove Current Team"></td>
+						<td><input type="button" class="btn btn-default btn-block" onclick="removeCurrentTeam()" id="place2" value="Remove Current Team"></td>
+					</tr>
+					<tr>
+						<td><input type="button" class="btn btn-default btn-block" onclick="sendClear()" id="clear" value="Clear"></td>
 					</tr>
 				</table>
 			</div>

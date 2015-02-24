@@ -1,12 +1,27 @@
-﻿body {
+﻿body 
+{
     font-family: 'Segoe UI', sans-serif;
 }
 
-span {
+span 
+{
     font-style: italic;
 }
-#buttonTable{
-    position:absolute;
-    top: 0;
-    right: 0;
+
+#displayTable
+{
+	overflow:auto;
+	background-color:#B2B2FF;
+	height:250px;
+	//width:300px;
+}
+
+h1,h2
+{
+	text-align: center;
+}
+
+p
+{
+	text-align: center;
 }

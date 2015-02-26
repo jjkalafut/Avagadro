@@ -150,7 +150,7 @@ function getPassableInformation(id) {
 		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
 		//alert(passedInformation[id]);
 	};
-function SendClear(){
+function sendClear(){
 	projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
 };
 

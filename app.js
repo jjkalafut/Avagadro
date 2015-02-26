@@ -146,12 +146,19 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		}
     myTableDiv.appendChild(table);
 };
-function getPassableInformation(id) {
+/*function getPassableInformation(id) {
 		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
 		//alert(passedInformation[id]);
 	};
 function sendClear(){
 	projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
+};*/
+function getPassableInformation(id) {
+		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.jerrypendleton.com"    );
+		//alert(passedInformation[id]);
+	};
+function SendClear(){
+	projectorModeWindow.postMessage(   "clear",  "http://www.jerrypendleton.com"    );
 };
 
 

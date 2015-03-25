@@ -4,6 +4,9 @@ var modecount = 0;
 var texttopass= new Array();
 var propValue = new Array();
 var teams = new Array();
+var showNextId = 0;
+var nextTeamInitialIndex = 0;
+var teamString = null;
 var passedInformation = new Array(); //Hosts the information to be passed to the projector view
 //view.projectorModeOn opens projector mode.
 view.projectorModeOn = function () {
@@ -29,12 +32,17 @@ view.removeNextTeam = function removeCurrentTeam() {
 };
 
 //view.showNextTeam
-view.showNextTeam = function showNextTeam() {
-    if (modecount == 1) {
-        document.getElementById("textHolder").nodeValue = ("Showing Next Team");
-    } else {
-        document.getElementById("textHolder").nodeValue = ("You need to open the presentation");
-    }
+view.showNextTeam = function showNextTeam() {  
+		getPassableInformation(nextTeamInitialIndex);
+		//getPassableNames(nextTeamInitialIndex);
+		nextTeamInitialIndex++;
+		var teamlength = 5;
+		if(teamString.length<5){
+			teamlength = teamString.length;
+		}
+		if(nextTeamInitialIndex>=teamlength){
+			nextTeamInitialIndex=0;
+		}
 };
 
 function grabResults() {
@@ -64,19 +72,24 @@ var obj = new Object();
 		else{
 			teams=propValue[j].results;
 		}
-		//rearranges score array from highest to lowest
-		teams.sort(function(a,b) { return parseFloat(b.score) - parseFloat(a.score) } );
 		for(var i=0;i<teams.length;i++){
-			var tempscore="No score"
-			if (teams[i].score!==undefined)
+			var tempscore= "No score";
+			var tempteam = "No team";
+			if (teams[i].score !== "undefined")
 			{
 				tempscore=teams[i].score;
 			}
-			if (teams[i].score===null)
+			if (teams[i].score === null)
 			{
 				teams[i].score='';
 			}
-			texttopass[i]=(teams[i].team + ": "+ tempscore);
+			if(teams[i].team !== "undefined"){
+				tempteam = teams[i].team;
+			}
+			if(teams[i].team === null){
+				tempteam = teams[i].team = '';
+			}
+			texttopass[i]=(tempteam + ": "+ tempscore);
 		}
 	}
 	addTable();
@@ -96,17 +109,16 @@ function addTable() {   // Adds the first table
         //dynamic table row and column creation
 		for (i = 0; i < propValue.length; i++) {
 			var tr = document.createElement('TR');
-			//var td = document.createElement('TD');
 			var td_btn = document.createElement('Button');
 			td_btn.className += 'btn btn-default btn-block';
 			td_btn.index=i;
 			td_btn.onclick = function() {		
 				tableButtons(this.index);
 				grabResults();
+				nextTeamInitialIndex = 0;
+				getPassableEventNames(this.index);
 			};
-			//td.appendChild(document.createTextNode(propValue[i].name));
 			td_btn.appendChild(document.createTextNode(propValue[i].name));
-			//tr.appendChild(td);
 			tr.appendChild(td_btn);
 			tableBody.appendChild(tr);
 		}
@@ -118,48 +130,62 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		while (myTableDiv.hasChildNodes()) {
 			myTableDiv.removeChild(myTableDiv.lastChild);
 		} 
-        var table = document.createElement('TABLE')
-        var tableBody = document.createElement('TBODY')
+        var table = document.createElement('TABLE');
+        var tableBody = document.createElement('TBODY');
 		var teamScore = null;
+		var studentNames = null;
 		var currentEventString = null;
+		teamString = propValue[id].results;
 		table.className += 'table';
         table.appendChild(tableBody);
-		var teamString = propValue[id].results;
         //dynamic table row and column creation
-		for (i = 0; i < teamString.length; i++) {
-			var tr = document.createElement('TR');
-			var td = document.createElement('TD');
-			var td_btn = document.createElement('Button');
-			td_btn.className += 'btn btn-default btn-block';
-			td_btn.index=i;
-			td_btn.onclick = function() {
-				getPassableInformation(this.index);
-			};
-			teamScore = teamString[i].score;
-			currentEventString = (teamString[i].team);
-			td.appendChild(document.createTextNode(currentEventString + ": " + teamScore));
-			td_btn.appendChild(document.createTextNode('Display Score'));
-			passedInformation[i]=currentEventString+": "+teamScore;
-			td.appendChild(td_btn);
-			tr.appendChild(td);
-			tableBody.appendChild(tr);
+		if (teamString !== null){	
+			for (i = 0; i < teamString.length; i++) {
+				var increment = i+1;
+				var tr = document.createElement('TR');
+				var td = document.createElement('TD');
+				teamScore = teamString[i].score;
+				studentNames = " Students: " + teamString[i].students;
+				currentEventString = (teamString[i].team);
+				//td.appendChild(document.createTextNode(currentEventString + ": " + teamScore+'.'+ " Students: " + studentNames));
+				if(studentNames === " Students: " + undefined)
+				{
+				studentNames = '';
+				}					
+				td.appendChild(document.createTextNode("Rank: "+increment+'. '+currentEventString + ". "  + studentNames));
+				passedInformation[i]=("Rank: "+increment+'. '+currentEventString + ". " + studentNames);
+				tr.appendChild(td);
+				tableBody.appendChild(tr);
+			}
 		}
     myTableDiv.appendChild(table);
 };
-/*function getPassableInformation(id) {
-		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
-		//alert(passedInformation[id]);
-	};
-function sendClear(){
-	projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
-};*/
 function getPassableInformation(id) {
+
+		//projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
+		alert(passedInformation[id]);
+
+	};
+function getPassableEventNames(id){
+		//projectorModeWindow.postMessage( "teamName;" + propValue[id],  "http://www.johnkalafut.com"    );
+		alert(propValue[id].name);
+	};
+	
+	
+	
+function sendClear(){
+	//projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
+};
+/*function getPassableInformation(id) {
 		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.jerrypendleton.com"    );
+		showNextId = id;
 		//alert(passedInformation[id]);
 	};
+
 function SendClear(){
 	projectorModeWindow.postMessage(   "clear",  "http://www.jerrypendleton.com"    );
 };
+*/
 
 
 

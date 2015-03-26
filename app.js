@@ -33,15 +33,16 @@ view.removeNextTeam = function removeCurrentTeam() {
 
 //view.showNextTeam
 view.showNextTeam = function showNextTeam() {  
-		getPassableInformation(nextTeamInitialIndex);
+		getPassableInformation(nextTeamInitialIndex-1);
 		//getPassableNames(nextTeamInitialIndex);
-		nextTeamInitialIndex++;
+		nextTeamInitialIndex--;
 		var teamlength = 5;
 		if(teamString.length<5){
 			teamlength = teamString.length;
 		}
-		if(nextTeamInitialIndex>=teamlength){
-			nextTeamInitialIndex=0;
+		if(nextTeamInitialIndex == 0){
+			nextTeamInitialIndex=teamString.length;
+			//Here is where the "team clear" should be implemented.
 		}
 };
 
@@ -115,7 +116,7 @@ function addTable() {   // Adds the first table
 			td_btn.onclick = function() {		
 				tableButtons(this.index);
 				grabResults();
-				nextTeamInitialIndex = 0;
+				nextTeamInitialIndex = teamString.length;
 				getPassableEventNames(this.index);
 			};
 			td_btn.appendChild(document.createTextNode(propValue[i].name));
@@ -136,6 +137,7 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		var studentNames = null;
 		var currentEventString = null;
 		teamString = propValue[id].results;
+		nextTeamInitialIndex = teamString.length;
 		table.className += 'table';
         table.appendChild(tableBody);
         //dynamic table row and column creation
@@ -167,7 +169,7 @@ function getPassableInformation(id) {
 
 	};
 function getPassableEventNames(id){
-		//projectorModeWindow.postMessage( "teamName;" + propValue[id],  "http://www.johnkalafut.com"    );
+		//projectorModeWindow.postMessage( "eventName;" + propValue[id],  "http://www.johnkalafut.com"    );
 		alert(propValue[id].name);
 	};
 	

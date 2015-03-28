@@ -164,13 +164,13 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 };
 function getPassableInformation(id) {
 
-		//projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
-		alert(passedInformation[id]);
+		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.johnkalafut.com"    );
+		//alert(passedInformation[id]);
 
 	};
 function getPassableEventNames(id){
-		//projectorModeWindow.postMessage( "eventName;" + propValue[id],  "http://www.johnkalafut.com"    );
-		alert(propValue[id].name);
+		projectorModeWindow.postMessage( "event: " + propValue[id].name,  "http://www.johnkalafut.com"    );
+		//alert(propValue[id].name);
 	};
 	
 	

@@ -8,6 +8,9 @@ var showNextId = 0;
 var nextTeamInitialIndex = 0;
 var teamString = null;
 var passedInformation = new Array(); //Hosts the information to be passed to the projector view
+var endOfList = false;
+
+
 //view.projectorModeOn opens projector mode.
 view.projectorModeOn = function () {
     modecount++;
@@ -24,26 +27,54 @@ view.projectorModeOn = function () {
 
 //view.removeNextTeam
 view.removeNextTeam = function removeCurrentTeam() {
+	endOfList = false;
     if (modecount == 1) {
-        document.getElementById("textHolder").nodeValue = ("Removing Current Team");
-    } else {
-        document.getElementById("textHolder").nodeValue = ("You need to open the presentation");
+		if(teamString.length != nextTeamInitialIndex){
+			removeById(nextTeamInitialIndex+1);
+		}
+		else if(teamString.length == nextTeamInitialIndex){
+			nextTeamInitialIndex = teamString.length-1;
+			alert("No teams are being Shown");
+		}
+		else{
+			removeById(1);
+		}
+			nextTeamInitialIndex++;
+    } 
+	else {
+        alert("You need to turn Projector Mode on.");
     }
 };
 
 //view.showNextTeam
 view.showNextTeam = function showNextTeam() {  
+	if (modecount == 1) {
+		if(endOfList == false){
 		getPassableInformation(nextTeamInitialIndex-1);
 		//getPassableNames(nextTeamInitialIndex);
 		nextTeamInitialIndex--;
 		var teamlength = 5;
-		if(teamString.length<5){
-			teamlength = teamString.length;
-		}
-		if(nextTeamInitialIndex == 0){
-			nextTeamInitialIndex=teamString.length;
+			if(teamString.length<5){
+				teamlength = teamString.length;
+			}
+			if(nextTeamInitialIndex <= 0){
+				nextTeamInitialIndex = 0;
+				endOfList = true;
+				
+			//nextTeamInitialIndex=teamString.length;
+			/*document.getElementById("place2").addEventListener("click", SendClear());*/  
 			//Here is where the "team clear" should be implemented.
+			}
+		}	
+		if(endOfList == true){
+			alert("All team information for the current category is being displayed.");
 		}
+			//alert("index = " + nextTeamInitialIndex);
+		}
+	
+	else {
+       alert("You need to turn Projector Mode on.");
+	}
 };
 
 function grabResults() {
@@ -172,10 +203,16 @@ function getPassableEventNames(id){
 		projectorModeWindow.postMessage( "event: " + propValue[id].name,  "http://johnkalafut.com"    );
 		//alert(propValue[id].name);
 	};
-	
+function removeById(id){
+alert(id);
+	//projectorModeWindow.postMessage( "remove;" + id,  "http://www.johnkalafut.com"    );
+}
 	
 	
 function sendClear(){
+	endOfList = false;
+	nextTeamInitialIndex = teamString.length;
+	alert("The team information has been cleared");
 	//projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
 };
 /*function getPassableInformation(id) {

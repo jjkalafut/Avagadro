@@ -6,11 +6,31 @@
 
 .ranks {
 	text-align: left;
-	width: 9px;
 }
+
 .studentNames{
 	padding-left: 12px;
+	display: none;
 }
-.teamName {
-	text-align:left;
+
+.teamName{
+	display: none;
+}
+
+table 
+{ 
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+
+.center-screen
+{
+	 border: 2px dashed blue;
+	 width: 60%;
+	 height: 70%;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%,-50%);
 }

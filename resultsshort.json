@@ -10,6 +10,9 @@
 	"results":[
 		{"team":"Nowhereville", "students": "Deborah Marquez, Lewis Toller"},
 		{"team":"Everytown", "students": "John Doe, Jane Doe"},
+		{"team":"Menomonie", "students": "Evan Glodowski, John Kalafut, Nathan Cox, Jerry Pendleton"},
+		{"team":"EauClaire", "students": "Firstname Lastname, Firstname Lastname"},
+		{"team":"Madison", "students": "John Doe, Jane Doe"},
 		{"team":"Bayside", "students": "Ryan Whitten, Wilma Isaacson, Johnnie Mellott"}]},
 "chemistry-lab":{
 	"name": "Chemistry Lab", 

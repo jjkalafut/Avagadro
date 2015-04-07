@@ -12,6 +12,7 @@ function listener(event){
 	var pos = str.search("event:");
 	if( pos >= 0){
 		document.getElementById("Title").innerHTML = str.substr(pos+7);
+		
 		return;
 	}
 	pos = str.search("Rank: ");
@@ -34,12 +35,18 @@ function listener(event){
 
 function placeRank( strInd, strVals ){
 	var next = strVals.search(". ");
-	if( next > 0){
+	if( next > 0)
+	{
 		document.getElementById("teamName"+strInd).innerHTML = strVals.substr(0,next);// + "<\\br>";
 		document.getElementById("studentName"+strInd).innerHTML = strVals.substr(next+1);
 	}
-	else{
+	else
+	{
 		document.getElementById("teamName"+strInd).innerHTML = strVals;
 		document.getElementById("studentName"+strInd).innerHTML = "";
 	}
+	
+	//Jquery FadeIn
+	$("#teamName"+strInd).fadeIn();
+	$("#studentName"+strInd).fadeIn();
 }

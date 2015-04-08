@@ -20,9 +20,13 @@ function listener(event){
 		placeRank( str.charAt(pos+6), str.substr(pos+9));
 		return;
 	}
+	pos = str.search("remove:");
+	if(pos >= 0 ){
+		removeRank( str.charAt(pos+7) );
+		return;
+	}
 	
-	
-	if( str.valueOf() != new String("clear").valueOf() ){
+	if( str.valueOf() == new String("clear").valueOf() ){
 		var teams = document.getElementsByClassName("teamName");
 		var students = document.getElementsByClassName("studentNames");
 		var i;
@@ -37,16 +41,21 @@ function placeRank( strInd, strVals ){
 	var next = strVals.search(". ");
 	if( next > 0)
 	{
-		document.getElementById("teamName"+strInd).innerHTML = strVals.substr(0,next);// + "<\\br>";
+		document.getElementById("teamName"+strInd).innerHTML = strInd + " " + strVals.substr(0,next);// + "<\\br>";
 		document.getElementById("studentName"+strInd).innerHTML = strVals.substr(next+1);
 	}
 	else
 	{
-		document.getElementById("teamName"+strInd).innerHTML = strVals;
+		document.getElementById("teamName"+strInd).innerHTML = strInd + " " +strVals;
 		document.getElementById("studentName"+strInd).innerHTML = "";
 	}
 	
 	//Jquery FadeIn
 	$("#teamName"+strInd).fadeIn();
 	$("#studentName"+strInd).fadeIn();
+}
+
+function removeRank( strInd ){
+	document.getElementById("teamName"+strInd).innerHTML = "";// + "<\\br>";
+	document.getElementById("studentName"+strInd).innerHTML = "";
 }

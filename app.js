@@ -193,38 +193,31 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		}
     myTableDiv.appendChild(table);
 };
+
 function getPassableInformation(id) {
-
-		projectorModeWindow.postMessage(   passedInformation[id],  "http://johnkalafut.com"    );
-		//alert(passedInformation[id]);
-
+		sendProjector(   passedInformation[id]  );
 	};
+	
 function getPassableEventNames(id){
-		projectorModeWindow.postMessage( "event: " + propValue[id].name,  "http://johnkalafut.com"    );
-		//alert(propValue[id].name);
+		sendProjector( "event: " + propValue[id].name );
 	};
+	
 function removeById(id){
-alert(id);
-	//projectorModeWindow.postMessage( "remove;" + id,  "http://www.johnkalafut.com"    );
-}
+		sendProjector( "remove:" + id );
+	}
 	
 	
 function sendClear(){
-	endOfList = false;
-	nextTeamInitialIndex = teamString.length;
-	alert("The team information has been cleared");
-	//projectorModeWindow.postMessage(   "clear",  "http://www.johnkalafut.com"    );
-};
-/*function getPassableInformation(id) {
-		projectorModeWindow.postMessage(   passedInformation[id],  "http://www.jerrypendleton.com"    );
-		showNextId = id;
-		//alert(passedInformation[id]);
+		endOfList = false;
+		nextTeamInitialIndex = teamString.length;
+		sendProjector(  "clear" );
 	};
-
-function SendClear(){
-	projectorModeWindow.postMessage(   "clear",  "http://www.jerrypendleton.com"    );
-};
-*/
+/* This function is included to easily switch between domains. It gets the correct domain name for postMessaging */	
+function sendProjector( str ){	
+		var temp = projectorModeWindow.location.href;
+		temp = temp.substr(0,temp.substr(7).search("/")+7);
+		projectorModeWindow.postMessage(  str,  temp   );
+	}
 
 
 

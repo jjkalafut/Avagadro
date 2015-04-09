@@ -199,6 +199,7 @@ function getPassableInformation(id) {
 	};
 	
 function getPassableEventNames(id){
+		sendClear();
 		sendProjector( "event: " + propValue[id].name );
 	};
 	

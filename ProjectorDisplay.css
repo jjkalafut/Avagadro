@@ -4,17 +4,26 @@
 @charset "utf-8";
 /* CSS Document */
 
-.ranks {
+.ranks 
+{
 	text-align: left;
 }
 
-.studentNames{
+.studentNames
+{
 	padding-left: 12px;
-	display: none;
+	padding-bottom: 10px;
+	opacity: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 15px;
 }
 
-.teamName{
-	display: none;
+.teamName
+{
+	opacity: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 30px;
+	padding-top: 10px;
 }
 
 table 
@@ -24,9 +33,24 @@ table
 	text-align: center;
 }
 
+.style1
+{
+	background: url(images/bg.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#logo
+{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
 .center-screen
 {
-	 border: 2px dashed blue;
 	 width: 60%;
 	 height: 70%;
 	 position: absolute;

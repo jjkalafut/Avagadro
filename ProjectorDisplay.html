@@ -10,59 +10,78 @@
     <script src="pst_message_rx.js"></script>
     <script src="ProjectDisplay.js"></script>
 	
+	<script>
+		$(document).ready(function() 
+		{
+			var images = ['background1.png', 'background2.png', 'background3.png'];
+			$('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')'});
+		});
+	</script>
+	
 	<!-- Bootstrap -->
     <link href="bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
+<<<<<<< HEAD
 <!--<body background="img/avogadrotitle.png">-->
 <body>
 
+=======
+<body class="style1">
+>>>>>>> origin/master
 <div class="container">
 	<div class="page-header text-center">
-		<h1 id="Title"><h1>
+		<h1 id="Title">&nbsp;<h1>
 	</div>
 
 	<div class="center-screen">
+<<<<<<< HEAD
 		<img id="logo" src="img/avogadrotitle.png" alt="Avogadro Title" align="middle" style="width:100%">
+=======
+>>>>>>> origin/master
 		<table>
-			<tr id="place1" style="font-size: 20px;">
+			<tr id="place1">
 				<td class="teamName" id="teamName1">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="studentNames" id="studentName1" colspan="2" >&nbsp;</td>
 			</tr>
-			<tr id="place2" style="font-size: 20px;">
+			<tr id="place2">
 				<td class="teamName" id="teamName2">&nbsp;</td>
 			</tr>    	
 			<tr>
 				<td class="studentNames" id="studentName2" colspan="2" >&nbsp;</td>
 			</tr>
-			<tr id="place3" style="font-size: 20px;">
+			<tr id="place3">
 				<td class="teamName" id="teamName3">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="studentNames" id="studentName3" colspan="2" >&nbsp;</td>
 			</tr>
-			<tr id="place4" style="font-size: 20px;">
+			<tr id="place4">
 				<td class="teamName" id="teamName4">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="studentNames" id="studentName4" colspan="2" >&nbsp;</td>
 			</tr>
-			<tr id="place5" style="font-size: 20px;">
+			<tr id="place5">
 				<td class="teamName" id="teamName5">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="studentNames" id="studentName5" colspan="2" >&nbsp;</td>
 			</tr>
-			<tr id="place6" style="font-size: 20px;">
+			<tr id="place6">
 				<td class="teamName" id="teamName6">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="studentNames" id="studentName6" colspan="2" >&nbsp;</td>
 			</tr>
 		</table>
-	<div>
+	</div>
+	
+	<div id="logo">
+		<img src="images/avogadro-title-l.png" alt="Avogadro" width="330" height="70">
+	</div>
 </div>
 </body>
 </html>

@@ -60,10 +60,6 @@ view.showNextTeam = function showNextTeam() {
 			if(nextTeamInitialIndex <= 0){
 				nextTeamInitialIndex = 0;
 				endOfList = true;
-				
-			//nextTeamInitialIndex=teamString.length;
-			/*document.getElementById("place2").addEventListener("click", SendClear());*/  
-			//Here is where the "team clear" should be implemented.
 			}
 		}	
 		if(endOfList == true){
@@ -205,7 +201,7 @@ function getPassableEventNames(id){
 	
 function removeById(id){
 		sendProjector( "remove:" + id );
-	}
+	};
 	
 	
 function sendClear(){
@@ -218,7 +214,23 @@ function sendProjector( str ){
 		var temp = projectorModeWindow.location.href;
 		temp = temp.substr(0,temp.substr(7).search("/")+7);
 		projectorModeWindow.postMessage(  str,  temp   );
-	}
+	};
+	
+document.onkeydown = function(e) {
+    e = e || window.event;
+    switch(e.which || e.keyCode) {
+	case 37: // left
+		removeNextTeam();
+        break;
+
+    case 39: // right
+		showNextTeam();
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+};
 
 
 

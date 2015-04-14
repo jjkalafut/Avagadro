@@ -37,7 +37,8 @@ function listener(event){
 	}
 }
 
-function placeRank( strInd, strVals ){
+function placeRank( strInd, strVals )
+{
 	var next = strVals.search(". ");
 	if( next > 0)
 	{
@@ -51,8 +52,8 @@ function placeRank( strInd, strVals ){
 	}
 	
 	//Jquery FadeIn
-	$("#teamName"+strInd).fadeIn();
-	$("#studentName"+strInd).fadeIn();
+	$("#teamName"+strInd).animate({opacity: '1'});
+	$("#studentName"+strInd).animate({opacity: '1'});
 }
 
 function removeRank( strInd ){

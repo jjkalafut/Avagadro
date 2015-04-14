@@ -12,11 +12,11 @@ function listener(event){
 	var pos = str.search("event:");
 	if( pos >= 0){
 		document.getElementById("Title").innerHTML = str.substr(pos+7);
-		
 		return;
 	}
 	pos = str.search("Rank: ");
 	if(pos >= 0 ){
+                document.getElementById("logoBig").style.display = "none";
 		placeRank( str.charAt(pos+6), str.substr(pos+9));
 		return;
 	}
@@ -34,6 +34,7 @@ function listener(event){
 			teams[i].innerHTML="";
 			students[i].innerHTML="";
 		}
+                document.getElementById("logoBig").style.display = "initial";
 	}
 }
 

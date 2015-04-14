@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 <html lang="en">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,7 +14,7 @@
 		$(document).ready(function() 
 		{
 			var images = ['background1.png', 'background2.png', 'background3.png'];
-			$('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')'});
+			$('body').css({'background-image': 'url(img/' + images[Math.floor(Math.random() * images.length)] + ')'});
 		});
 	</script>
 	
@@ -22,23 +22,16 @@
     <link href="bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<<<<<<< HEAD
 <!--<body background="img/avogadrotitle.png">-->
-<body>
-
-=======
 <body class="style1">
->>>>>>> origin/master
 <div class="container">
 	<div class="page-header text-center">
 		<h1 id="Title">&nbsp;<h1>
 	</div>
-
 	<div class="center-screen">
-<<<<<<< HEAD
-		<img id="logo" src="img/avogadrotitle.png" alt="Avogadro Title" align="middle" style="width:100%">
-=======
->>>>>>> origin/master
+		<div id="logoBig">
+			<img src="img/avogadrotitle.png" alt="Avogadro Title" align="middle" style="width:100%">
+		</div>
 		<table>
 			<tr id="place1">
 				<td class="teamName" id="teamName1">&nbsp;</td>
@@ -80,8 +73,8 @@
 	</div>
 	
 	<div id="logo">
-		<img src="images/avogadro-title-l.png" alt="Avogadro" width="330" height="70">
+		<img src="img/logo_sphere.png" alt="Avogadro" width="70" height="70">
 	</div>
-</div>
+</div>	
 </body>
 </html>

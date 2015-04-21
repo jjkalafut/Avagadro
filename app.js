@@ -94,32 +94,7 @@ var obj = new Object();
 	for(var i=0; i<propValue.length;i++){
 		console.log(propValue[i].results);
 	}
-	for(var j=0;j<count;j++){
-		if(propValue[j].results===null){
-		}
-		else{
-			teams=propValue[j].results;
-		}
-		for(var i=0;i<teams.length;i++){
-			var tempscore= "No score";
-			var tempteam = "No team";
-			if (teams[i].score !== "undefined")
-			{
-				tempscore=teams[i].score;
-			}
-			if (teams[i].score === null)
-			{
-				teams[i].score='';
-			}
-			if(teams[i].team !== "undefined"){
-				tempteam = teams[i].team;
-			}
-			if(teams[i].team === null){
-				tempteam = teams[i].team = '';
-			}
-			texttopass[i]=(tempteam + ": "+ tempscore);
-		}
-	}
+
 	addTable();
 };
 view.onload = grabResults;

@@ -16,7 +16,7 @@
 		{"team":"Bayside", "students": "Ryan Whitten, Wilma Isaacson, Johnnie Mellott"}]},
 "chemistry-lab":{
 	"name": "Chemistry Lab", 
-	"results": null},
+	"results": [{"team":"Nowhereville", "students": "Shawnie Martin, Barry Smitt"}]},
 "dynamic-planet":{	
 	"name": "Dynamic Planet", 
 	"results":[
@@ -25,32 +25,44 @@
 		{"team": "Bayside"}]},
 "TestingEvents1":{
 	"name": "Testing Events1", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents2":{
 	"name": "Testing Events2", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents3":{
 	"name": "Testing Events3", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents4":{
 	"name": "Testing Events4", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents5":{
 	"name": "Testing Events5", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents6":{
 	"name": "Testing Events6", 
-	"results": null},
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]},
 "TestingEvents7":{
 	"name": "Testing Events7", 
-	"results": null},
-"TestingEvents8":{
-	"name": "Testing Events8", 
-	"results": null},
-"TestingEvents9":{
-	"name": "Testing Events9", 
-	"results": null},
-"TestingEvents10":{
-	"name": "Testing Events10", 
-	"results": null}
+	"results":[
+		{"team": "Nowhereville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Bayside", "students": "Martin Drown, Ruthy Murry"}]}
 }

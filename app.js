@@ -138,6 +138,7 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		var teamScore = null;
 		var studentNames = null;
 		var currentEventString = null;
+		var scoreString = null;
 		teamString = propValue[id].results;
 		nextTeamInitialIndex = teamString.length;
 		table.className += 'table';
@@ -149,15 +150,19 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 				var tr = document.createElement('TR');
 				var td = document.createElement('TD');
 				teamScore = teamString[i].score;
-				studentNames = " Students: " + teamString[i].students;
+				studentNames = " Students: " + teamString[i].students +". " ;
 				currentEventString = (teamString[i].team);
+				scoreString = " Score: " + teamString[i].score;
+				if(scoreString ===  " Score: " + undefined){
+				scoreString = '';
+				}
 				//td.appendChild(document.createTextNode(currentEventString + ": " + teamScore+'.'+ " Students: " + studentNames));
-				if(studentNames === " Students: " + undefined)
+				if(studentNames === " Students: " + undefined + ". ")
 				{
 				studentNames = '';
 				}					
-				td.appendChild(document.createTextNode("Rank: "+increment+'. '+currentEventString + ". "  + studentNames));
-				passedInformation[i]=("Rank: "+increment+'. '+currentEventString + ". " + studentNames);
+				td.appendChild(document.createTextNode("Rank: "+increment+'. '+currentEventString + ". "  + studentNames + scoreString));
+				passedInformation[i]=("Rank: "+increment+'. '+currentEventString + ". " + studentNames + scoreString);
 				tr.appendChild(td);
 				tableBody.appendChild(tr);
 			}

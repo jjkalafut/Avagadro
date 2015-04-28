@@ -54,9 +54,6 @@ view.removeNextTeam = function removeCurrentTeam() {
 view.showNextTeam = function showNextTeam() {  
 	if (modecount % 2 == 1) {
 		if(endOfList == false){
-		if(teamString.length>6){
-			nextTeamInitialIndex = 6;
-		}
 		getPassableInformation(nextTeamInitialIndex-1);
 		nextTeamInitialIndex--;
 		var teamlength = 5;
@@ -157,6 +154,10 @@ function addTable() {   // Adds the first table
 			tableBody.appendChild(tr);
 		}
     myTableDiv.appendChild(table);
+	
+	if(teamString.length>6){
+		nextTeamInitialIndex = 6;
+	}
 };
 
 function tableButtons(id) {   //Adds the scores and team information 
@@ -198,6 +199,10 @@ function tableButtons(id) {   //Adds the scores and team information
 			}
 		}
     myTableDiv.appendChild(table);
+	
+	if(teamString.length>6){
+		nextTeamInitialIndex = 6;
+	}
 };
 
 function kioskAlgorithm(flag){
@@ -239,14 +244,12 @@ function kioskEvents(){
 };
 
 function getPassableInformation(id) {
-		//sendProjector(   passedInformation[id]  );
-		alert(passedInformation[id]);
+		sendProjector(   passedInformation[id]  );
 	};
 	
 function getPassableEventNames(id){
 		sendClear();
-		//sendProjector( "event: " + propValue[id].name );
-		alert( propValue[id].name);
+		sendProjector( "event: " + propValue[id].name );
 	};
 	
 function removeById(id){

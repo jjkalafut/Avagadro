@@ -54,6 +54,9 @@ view.removeNextTeam = function removeCurrentTeam() {
 view.showNextTeam = function showNextTeam() {  
 	if (modecount % 2 == 1) {
 		if(endOfList == false){
+		if(teamString.length>6){
+			nextTeamInitialIndex = 6;
+		}
 		getPassableInformation(nextTeamInitialIndex-1);
 		nextTeamInitialIndex--;
 		var teamlength = 5;
@@ -104,7 +107,7 @@ function grabResults() {
 var obj = new Object();
 
 	$.ajax({
-		url: "resultssupershort.json",
+		url: "resultsshort.json",
 		dataType: 'json',
 		async: false,
 		success: function(data) {
@@ -199,22 +202,16 @@ function tableButtons(id) {   //Adds the scores and team information
 
 function kioskAlgorithm(flag){
 	if(flag){
-		//setInterval(function () { }, 3000*propValue.length()}; 
-		//alert("kiosk is on");
 		if(kioskFlag){
 			kioskEvents();
 			tableButtons(eventIndex);
 			kioskFlag = false;
 		}
-		//setInterval(function () {kioskTeams()}, 3000);
 		kioskInterval = setInterval(function () {kioskTeams()}, 3000);
-		//alert(eventIndex);
-		//flag = false;
 	}
 	if(!flag)
 	{
 		clearInterval(kioskInterval);
-		//alert("kiosk is off");
 		kioskFlag = true;
 	}
 
@@ -222,10 +219,8 @@ function kioskAlgorithm(flag){
 
 function kioskTeams(){	
 		if(nextTeamInitialIndex == 0)
-		{
-			//clearInterval(kioskInterval);
-			
-			setTimeout(function() {kioskEvents()}, 3000);			
+		{	
+			setTimeout(function() {kioskEvents()}, 3000);
 			eventIndex++;
 			nextTeamInitialIndex = teamString.length;
 		}
@@ -233,19 +228,15 @@ function kioskTeams(){
 		{
 			showNextTeam();
 		}
-		//kioskInterval = setInterval(function () {kioskTeams()}, 3000);
-		//kioskAlgorithm(true);
 };
 function kioskEvents(){
-	if(eventIndex == propValue.length){
+	if(eventIndex >= propValue.length){
 		eventIndex = 0;
 	}
 	getPassableEventNames(eventIndex);
 	tableButtons(eventIndex);
 
 };
-
-
 
 function getPassableInformation(id) {
 		//sendProjector(   passedInformation[id]  );

@@ -58,3 +58,15 @@ table
 	 left: 50%;
 	 transform: translate(-50%,-50%);
 }
+.page-header
+{
+	border-bottom: none;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(font/berlin-sans-fb-demi-bold.ttf);
+}
+h1
+{
+	font-family: myFirstFont;
+}

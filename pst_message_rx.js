@@ -34,6 +34,7 @@ function listener(event){
 			teams[i].innerHTML="";
 			students[i].innerHTML="";
 		}
+		document.getElementById("Title").innerHTML = "";
         document.getElementById("logoBig").style.display = "initial";
 	}
 }

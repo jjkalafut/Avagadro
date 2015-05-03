@@ -259,6 +259,12 @@ function removeById(id){
 	
 function sendClear(){
 		endOfList = false;
+		if(teamString.length>6){
+			nextTeamInitialIndex = 6;
+		}
+		else{
+			nextTeamInitialIndex = teamString.length;
+		}
 		sendProjector(  "clear" );
 	};
 /* This function is included to easily switch between domains. It gets the correct domain name for postMessaging */	

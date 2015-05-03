@@ -13,10 +13,12 @@
 		{"team":"Menomonie", "students": "Evan Glodowski, John Kalafut, Nathan Cox, Jerry Pendleton"},
 		{"team":"EauClaire", "students": "Firstname Lastname, Firstname Lastname"},
 		{"team":"Madison", "students": "John Doe, Jane Doe"},
+		{"team":"Odear", "students": "Jim Valley, Erna Prickens"},
+		{"team":"Frankfurt", "students": "Carly Rena, Sam Simmons"},
 		{"team":"Bayside", "students": "Ryan Whitten, Wilma Isaacson, Johnnie Mellott"}]},
 "chemistry-lab":{
 	"name": "Chemistry Lab", 
-	"results": null},
+	"results": [{"team":"Nowhereville", "students": "Shawnie Martin, Barry Smitt"}]},
 "dynamic-planet":{	
 	"name": "Dynamic Planet", 
 	"results":[
@@ -25,32 +27,48 @@
 		{"team": "Bayside"}]},
 "TestingEvents1":{
 	"name": "Testing Events1", 
-	"results": null},
+	"results":[
+		{"team": "Jacksonville", "students": "Martin Drown, Ruthy Murry"},
+		{"team": "Anytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "AppleTown", "students": "Terry Popper, Florince Smith, Hally O'Connel"},
+		{"team": "Bedlam", "students": "Sing Li, Dai Li, Zhu Li, Reginald O'pert"},
+		{"team": "Lakeside", "students": "Gary Frampton, Maggie Dillinger"}]},
 "TestingEvents2":{
 	"name": "Testing Events2", 
-	"results": null},
+	"results":[
+		{"team": "Martin PLaza", "students": "Dartin Mown, Stephen Fister"},
+		{"team": "Everytown", "students": "William Lippincott, Florence King, Debbie Bancroft, Keri Miller"},
+		{"team": "Goldenway", "students": "Delma Conglaro, Selma Ruiz, Tate Johansson, Abe Trentsen"},
+		{"team": "Conway", "students": "Darius McFinnigan, Larry Welk"}]},
 "TestingEvents3":{
 	"name": "Testing Events3", 
-	"results": null},
+	"results":[
+		{"team": "Martini", "students": "Dan Dewberry, Harry Denton"},
+		{"team": "Eenytini", "students": "Smoko Martin, Tini Marta, Cajun Bronx, Blavod Bellini"}]},
 "TestingEvents4":{
 	"name": "Testing Events4", 
-	"results": null},
+	"results":[
+		{"team": "Hellothereville", "students": "Kid Name, Rudy Ranker"},
+		{"team": "Tomorrowland", "students": "Bill Gordon, Don Atello, Mance Raider, Kimmy Baye"},
+		{"team": "Yesterdayland", "students": "Geoff Gordon, Mike El Angelo, Sandor Clegan, Brooke Konkel"},
+		{"team": "Riveride", "students": "Richie Moneyworth, Emma Baron"}]},
 "TestingEvents5":{
 	"name": "Testing Events5", 
-	"results": null},
+	"results":[
+		{"team": "Canadia", "students": "Jesus Maple, Dennis Oak"},
+		{"team": "Hippopotus", "students": "Abamo Korb, Korin Calta"},
+		{"team": "Riviera", "students": "Penny Littles, Desmond Dramon, Hellen Murry, John Murry"},
+		{"team": "Oconto", "students": "Kyle Odowski, Leo Nardo, Raff Ayell"},
+		{"team": "Milwaukee", "students": "Dustin Jetzler, Flouna Drunkle, Walda Simmons, Barry Besang"},
+		{"team": "Chicago", "students": "Ned Chance, Stark Flanders, Jerry Noma"},
+		{"team": "St. Paul", "students": "Martin Brown, Ruby Murray"}]},
 "TestingEvents6":{
 	"name": "Testing Events6", 
-	"results": null},
+	"results":[
+		{"team": "Helpful", "students": "Tyrone Biggums, Albert Gordo"},
+		{"team": "Clayside", "students": "Mario Fencini, Talbot Grey"}]},
 "TestingEvents7":{
 	"name": "Testing Events7", 
-	"results": null},
-"TestingEvents8":{
-	"name": "Testing Events8", 
-	"results": null},
-"TestingEvents9":{
-	"name": "Testing Events9", 
-	"results": null},
-"TestingEvents10":{
-	"name": "Testing Events10", 
-	"results": null}
+	"results":[
+		{"team": "GloryTown", "students": "Smitty Werben, Patrick Starr"}]}
 }

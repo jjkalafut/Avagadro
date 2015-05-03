@@ -9,8 +9,11 @@ var nextTeamInitialIndex = 0;
 var teamString = null;
 var passedInformation = new Array(); //Hosts the information to be passed to the projector view
 var endOfList = false;
-
-
+var kioskCount = 0;
+var eventIndex = 0;
+var kioskText = true;
+var kioskFlag = true;
+var kioskInterval = null;
 //view.projectorModeOn opens projector mode.
 view.projectorModeOn = function () {
     modecount++;
@@ -19,16 +22,17 @@ view.projectorModeOn = function () {
         projmode.value = ("Projector Mode ON");
         projectorModeWindow = window.open("ProjectorDisplay.html", "_blank", "fullscreen=0,toolbar=0,location=0,menubar=1,directories=0,scrollbars=0,resizable=1");
     } else {
+		modecount = 0;
+		projmode.value = ("Projector Mode OFF");
+		kiosk();
         projectorModeWindow.close();
-        projmode.value = ("Projector Mode OFF");
-        modecount = 0;
     }
 };
 
 //view.removeNextTeam
 view.removeNextTeam = function removeCurrentTeam() {
 	endOfList = false;
-    if (modecount == 1) {
+    if (modecount % 2 == 1) {
 		if(teamString.length != nextTeamInitialIndex){
 			removeById(nextTeamInitialIndex+1);
 		}
@@ -48,10 +52,9 @@ view.removeNextTeam = function removeCurrentTeam() {
 
 //view.showNextTeam
 view.showNextTeam = function showNextTeam() {  
-	if (modecount == 1) {
+	if (modecount % 2 == 1) {
 		if(endOfList == false){
 		getPassableInformation(nextTeamInitialIndex-1);
-		//getPassableNames(nextTeamInitialIndex);
 		nextTeamInitialIndex--;
 		var teamlength = 5;
 			if(teamString.length<5){
@@ -61,15 +64,39 @@ view.showNextTeam = function showNextTeam() {
 				nextTeamInitialIndex = 0;
 				endOfList = true;
 			}
-		}	
-		if(endOfList == true){
-			alert("All team information for the current category is being displayed.");
 		}
-			//alert("index = " + nextTeamInitialIndex);
+		if(kioskText){		
+			if(endOfList == true){
+				alert("All team information for the current category is being displayed.");
+			}
 		}
-	
+	}	
 	else {
        alert("You need to turn Projector Mode on.");
+	}
+};
+
+//Kiosk Mode Button functionality
+view.kiosk = function kiosk() {
+	var kioskMode = document.getElementById("kiosk");
+	if(modecount % 2 == 1){
+		if (kioskCount % 2 != 1){
+		kioskMode.value = "Kiosk Mode ON";
+		kioskText = false;
+		kioskAlgorithm(true);
+		kioskCount++;	
+		}
+		else{
+			kioskMode.value = "Kiosk Mode OFF";
+			kioskText = true;
+			kioskAlgorithm(false);
+			kioskCount = 0;
+		}
+	}
+	else {
+		kioskMode.value = "Kiosk Mode OFF";	
+		clearInterval(kioskInterval);
+		alert("Kiosk Mode is OFF. Turn Projector Mode ON.");
 	}
 };
 
@@ -118,6 +145,7 @@ function addTable() {   // Adds the first table
 			td_btn.onclick = function() {		
 				tableButtons(this.index);
 				grabResults();
+				eventIndex = this.index;
 				nextTeamInitialIndex = teamString.length;
 				getPassableEventNames(this.index);
 			};
@@ -126,9 +154,13 @@ function addTable() {   // Adds the first table
 			tableBody.appendChild(tr);
 		}
     myTableDiv.appendChild(table);
+	
+	if(teamString.length>6){
+		nextTeamInitialIndex = 6;
+	}
 };
 
-function tableButtons(id) {   //Adds the scores and team information when the Expand Teams buttons are clicked
+function tableButtons(id) {   //Adds the scores and team information 
 		var myTableDiv = document.getElementById("teamInformation")
 		while (myTableDiv.hasChildNodes()) {
 			myTableDiv.removeChild(myTableDiv.lastChild);
@@ -138,6 +170,7 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 		var teamScore = null;
 		var studentNames = null;
 		var currentEventString = null;
+		var scoreString = null;
 		teamString = propValue[id].results;
 		nextTeamInitialIndex = teamString.length;
 		table.className += 'table';
@@ -149,20 +182,65 @@ function tableButtons(id) {   //Adds the scores and team information when the Ex
 				var tr = document.createElement('TR');
 				var td = document.createElement('TD');
 				teamScore = teamString[i].score;
-				studentNames = " Students: " + teamString[i].students;
+				studentNames = " Students: " + teamString[i].students +". " ;
 				currentEventString = (teamString[i].team);
-				//td.appendChild(document.createTextNode(currentEventString + ": " + teamScore+'.'+ " Students: " + studentNames));
-				if(studentNames === " Students: " + undefined)
+				scoreString = " Score: " + teamString[i].score;
+				if(scoreString ===  " Score: " + undefined){
+				scoreString = '';
+				}
+				if(studentNames === " Students: " + undefined + ". ")
 				{
 				studentNames = '';
 				}					
-				td.appendChild(document.createTextNode("Rank: "+increment+'. '+currentEventString + ". "  + studentNames));
-				passedInformation[i]=("Rank: "+increment+'. '+currentEventString + ". " + studentNames);
+				td.appendChild(document.createTextNode("Rank: "+increment+'. '+currentEventString + ". "  + studentNames + scoreString));
+				passedInformation[i]=("Rank: "+increment+'. '+currentEventString + ". " + studentNames + scoreString);
 				tr.appendChild(td);
 				tableBody.appendChild(tr);
 			}
 		}
     myTableDiv.appendChild(table);
+	
+	if(teamString.length>6){
+		nextTeamInitialIndex = 6;
+	}
+};
+
+function kioskAlgorithm(flag){
+	if(flag){
+		if(kioskFlag){
+			kioskEvents();
+			tableButtons(eventIndex);
+			kioskFlag = false;
+		}
+		kioskInterval = setInterval(function () {kioskTeams()}, 3000);
+	}
+	if(!flag)
+	{
+		clearInterval(kioskInterval);
+		kioskFlag = true;
+	}
+
+};
+
+function kioskTeams(){	
+		if(nextTeamInitialIndex == 0)
+		{	
+			setTimeout(function() {kioskEvents()}, 3000);
+			eventIndex++;
+			nextTeamInitialIndex = teamString.length;
+		}
+		else
+		{
+			showNextTeam();
+		}
+};
+function kioskEvents(){
+	if(eventIndex >= propValue.length){
+		eventIndex = 0;
+	}
+	getPassableEventNames(eventIndex);
+	tableButtons(eventIndex);
+
 };
 
 function getPassableInformation(id) {
@@ -181,7 +259,6 @@ function removeById(id){
 	
 function sendClear(){
 		endOfList = false;
-		nextTeamInitialIndex = teamString.length;
 		sendProjector(  "clear" );
 	};
 /* This function is included to easily switch between domains. It gets the correct domain name for postMessaging */	

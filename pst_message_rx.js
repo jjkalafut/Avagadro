@@ -44,7 +44,9 @@ function placeRank( strInd, strVals )
 	if( next > 0)
 	{
 		document.getElementById("teamName"+strInd).innerHTML = strInd + " " + strVals.substr(0,next);// + "<\\br>";
-		document.getElementById("studentName"+strInd).innerHTML = strVals.substr(strVals.search(":")+1);
+		var std = strVals.substr(strVals.search(":")+1 );
+		std = std.replace(".","");
+		document.getElementById("studentName"+strInd).innerHTML = std;
 	}
 	else
 	{

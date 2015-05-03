@@ -240,7 +240,7 @@ function kioskEvents(){
 	}
 	getPassableEventNames(eventIndex);
 	tableButtons(eventIndex);
-
+	grabResults();
 };
 
 function getPassableInformation(id) {

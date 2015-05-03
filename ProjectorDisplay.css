@@ -12,18 +12,20 @@
 .studentNames
 {
 	padding-left: 12px;
-	display: none;
 	padding-bottom: 10px;
 	opacity: 0;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	font-size: 15px;
+	color:#000;
+	font-size: 20px;
 }
 
 .teamName
 {
 	opacity: 0;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bolder;
 	font-size: 30px;
+	color:#000;
 	padding-top: 10px;
 }
 
@@ -41,6 +43,14 @@ table
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+#title
+{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-weight:900;
+	font-size: 45px;
+	color:#000;
 }
 
 #logo
